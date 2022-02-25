@@ -18,13 +18,13 @@
     <ClCompile Include="OneDimensionalArray.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="StaticArray.cpp">
+    <ClCompile Include="Vector.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="DynamicArray.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.cpp">
+    <ClCompile Include="StaticArray.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

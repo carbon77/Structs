@@ -1,6 +1,7 @@
 ﻿#include <iostream>
+#include "Static.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    test_static();
 }

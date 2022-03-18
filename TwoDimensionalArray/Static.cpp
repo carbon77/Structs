@@ -99,7 +99,7 @@ void output(int arr[][COLS], int n, int m)
 	}
 }
 
-void test_static()
+void testStatic()
 {
 	int arr[ROWS][COLS];
 

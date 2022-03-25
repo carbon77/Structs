@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dynamic.cpp" />
     <ClCompile Include="Static.cpp" />
     <ClCompile Include="TwoDimensionalArray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dynamic.h" />
     <ClInclude Include="Static.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -142,10 +142,12 @@
     <ClCompile Include="Dynamic.cpp" />
     <ClCompile Include="Static.cpp" />
     <ClCompile Include="TwoDimensionalArray.cpp" />
+    <ClCompile Include="VectorTask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dynamic.h" />
     <ClInclude Include="Static.h" />
+    <ClInclude Include="VectorTask.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

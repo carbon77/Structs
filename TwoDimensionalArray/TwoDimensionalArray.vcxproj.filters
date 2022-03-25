@@ -24,12 +24,18 @@
     <ClCompile Include="Dynamic.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="VectorTask.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Static.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="Dynamic.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorTask.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>

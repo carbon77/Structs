@@ -143,11 +143,13 @@
     <ClCompile Include="DynamicArray.cpp" />
     <ClCompile Include="StaticArray.cpp" />
     <ClCompile Include="StructsTable.cpp" />
+    <ClCompile Include="VectorTable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BookCard.h" />
     <ClInclude Include="DynamicTable.h" />
     <ClInclude Include="StaticArray.h" />
+    <ClInclude Include="VectorTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

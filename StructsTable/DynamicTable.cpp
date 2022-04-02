@@ -123,4 +123,6 @@ void testDynamicTable()
 	std::cout << "Books:\n";
 	print(table);
 	std::cout << "=====";
+
+	delete[] table.data;
 }

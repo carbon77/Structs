@@ -1,22 +1,10 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-#include <ctime>
-#include <format>
+#include "BookCard.h"
 
 const int N = 100;
 
-struct BookCard
-{
-	int inventory;
-	std::string author;
-	std::string name;
-	std::tm issueDate;
-	std::tm returnDate;
-};
-
-struct Table
+struct StaticTable
 {
 	int capacity = N;
 	int size = 0;

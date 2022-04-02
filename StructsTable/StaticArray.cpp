@@ -1,72 +1,19 @@
 #include "StaticArray.h"
 
-void print(BookCard& bc)
-{
-	std::cout << "Book: " << bc.name << " - " << bc.author;
-	std::cout << ", inventory: " << bc.inventory;
-
-	char s[40];
-	strftime(s, 40, "%F", &bc.issueDate);
-	std::cout << ", issueDate: " << s;
-
-	strftime(s, 40, "%F", &bc.returnDate);
-	std::cout << ", returnDate: " << s;
-}
-
-void print(Table& table)
+void print(StaticTable& table)
 {
 	for (int i = 0; i < table.size; i++)
 	{
-		print(table.data[i]);
-		std::cout << "\n";
+		std::cout << table.data[i] << '\n';
 	}
 }
 
-void fillBookCard(BookCard& bc)
-{
-	std::cout << "\Filling book card:\n";
-
-	int inventory;
-	std::cout << "Enter inventory number: ";
-	std::cin >> inventory;
-
-	std::cin.ignore();
-	std::string author;
-	std::cout << "Enter name of the author: ";
-	std::getline(std::cin, author);
-
-	std::string name;
-	std::cout << "Enter name of the book: ";
-	std::getline(std::cin, name);
-
-	time_t t = time(NULL);
-	int returnDelay;
-	std::cout << "Enter return time(days): ";
-	std::cin >> returnDelay;
-
-	tm issueDate;
-	tm returnDate;
-	
-	localtime_s(&issueDate, &t);
-
-	localtime_s(&returnDate, &t);
-	returnDate.tm_mday += returnDelay;
-	t = mktime(&returnDate);
-	localtime_s(&returnDate, &t);
-
-	bc.inventory = inventory;
-	bc.author = author;
-	bc.name = name;
-	bc.issueDate = issueDate;
-	bc.returnDate = returnDate;
-}
-
-void addBookCard(Table& table, BookCard& bc)
+void addBookCard(StaticTable& table, BookCard& bc)
 {
 	table.data[table.size++] = bc;
 }
 
-void removeBookCard(Table& table, int index)
+void removeBookCard(StaticTable& table, int index)
 {
 	for (int i = index; i < table.size; i++)
 	{
@@ -75,7 +22,7 @@ void removeBookCard(Table& table, int index)
 	table.size--;
 }
 
-void deleteBookCardsByReturnDate(Table& table, time_t& t)
+void deleteBookCardsByReturnDate(StaticTable& table, time_t& t)
 {
 	tm u;
 	localtime_s(&u, &t);
@@ -95,13 +42,13 @@ void deleteBookCardsByReturnDate(Table& table, time_t& t)
 	}
 }
 
-void deleteBookCardsByReturnDate(Table& table)
+void deleteBookCardsByReturnDate(StaticTable& table)
 {
 	time_t t = time(NULL);
 	deleteBookCardsByReturnDate(table, t);
 }
 
-int countExpiredBooks(Table& table, time_t t)
+int countExpiredBooks(StaticTable& table, time_t t)
 {
 	int count = 0;
 	tm u;
@@ -124,7 +71,7 @@ int countExpiredBooks(Table& table, time_t t)
 	return count;
 }
 
-int countExpiredBooks(Table& table)
+int countExpiredBooks(StaticTable& table)
 {
 	time_t t = time(NULL);
 	return countExpiredBooks(table, t);
@@ -136,7 +83,7 @@ void testStaticArray()
 	std::cout << "Enter count books: ";
 	std::cin >> count;
 
-	Table table;
+	StaticTable table;
 	for (int i = 0; i < count; i++)
 	{
 		BookCard bc;

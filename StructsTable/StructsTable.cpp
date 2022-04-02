@@ -1,4 +1,4 @@
-﻿#include "StaticArray.h"
+﻿#include "StaticTable.h"
 #include "DynamicTable.h"
 #include "VectorTable.h"
 
@@ -13,11 +13,11 @@ int main()
 
 	if (choice == 1)
 	{
-		testStaticArray();
+		testStaticTable();
 	}
 	else if (choice == 2)
 	{
-		testDynamicArray();
+		testDynamicTable();
 	}
 	else if (choice == 3)
 	{

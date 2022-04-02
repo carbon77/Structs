@@ -18,13 +18,13 @@
     <ClCompile Include="StructsTable.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="StaticArray.cpp">
+    <ClCompile Include="StaticTable.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="BookCard.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="DynamicArray.cpp">
+    <ClCompile Include="DynamicTable.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="VectorTable.cpp">
@@ -32,7 +32,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StaticArray.h">
+    <ClInclude Include="StaticTable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="BookCard.h">

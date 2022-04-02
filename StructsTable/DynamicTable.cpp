@@ -1,6 +1,6 @@
-#include "StaticArray.h"
+#include "DynamicTable.h"
 
-void print(StaticTable& table)
+void print(DynamicTable& table)
 {
 	for (int i = 0; i < table.size; i++)
 	{
@@ -8,21 +8,35 @@ void print(StaticTable& table)
 	}
 }
 
-void addBookCard(StaticTable& table, BookCard& bc)
+void addBookCard(DynamicTable& table, BookCard& bc)
 {
-	table.data[table.size++] = bc;
+	if (table.size < table.capacity)
+	{
+		table.data[table.size++] = bc;
+		return;
+	}
+
+	BookCard* data = new BookCard[table.size + 1];
+
+	for (int i = 0; i < table.size; i++)
+	{
+		data[i] = table.data[i];
+	}
+	data[table.size++] = bc;
+	table.capacity++;
+	table.data = data;
 }
 
-void removeBookCard(StaticTable& table, int index)
+void removeBookCard(DynamicTable& table, int index)
 {
-	for (int i = index; i < table.size; i++)
+	for (int i = index; i < table.size - 1; i++)
 	{
 		table.data[i] = table.data[i + 1];
 	}
 	table.size--;
 }
 
-void deleteBookCardsByReturnDate(StaticTable& table, time_t& t)
+void deleteBookCardsByReturnDate(DynamicTable& table, time_t& t)
 {
 	tm u;
 	localtime_s(&u, &t);
@@ -34,7 +48,7 @@ void deleteBookCardsByReturnDate(StaticTable& table, time_t& t)
 	{
 		BookCard& bc = table.data[i];
 		if (year >= bc.returnDate.tm_year &&
-			month >= bc.returnDate.tm_mon && 
+			month >= bc.returnDate.tm_mon &&
 			day > bc.returnDate.tm_mon)
 		{
 			removeBookCard(table, i);
@@ -42,13 +56,13 @@ void deleteBookCardsByReturnDate(StaticTable& table, time_t& t)
 	}
 }
 
-void deleteBookCardsByReturnDate(StaticTable& table)
+void deleteBookCardsByReturnDate(DynamicTable& table)
 {
 	time_t t = time(NULL);
 	deleteBookCardsByReturnDate(table, t);
 }
 
-int countExpiredBooks(StaticTable& table, time_t t)
+int countExpiredBooks(DynamicTable& table, time_t t)
 {
 	int count = 0;
 	tm u;
@@ -71,20 +85,21 @@ int countExpiredBooks(StaticTable& table, time_t t)
 	return count;
 }
 
-int countExpiredBooks(StaticTable& table)
+int countExpiredBooks(DynamicTable& table)
 {
 	time_t t = time(NULL);
 	return countExpiredBooks(table, t);
 }
 
-void testStaticArray()
+void testDynamicTable()
 {
-	int count;
+	int size;
 	std::cout << "Enter count books: ";
-	std::cin >> count;
+	std::cin >> size;
 
-	StaticTable table;
-	for (int i = 0; i < count; i++)
+	DynamicTable table = { 0, size, new BookCard[size] };
+
+	for (int i = 0; i < size; i++)
 	{
 		BookCard bc;
 		fillBookCard(bc);
@@ -95,11 +110,13 @@ void testStaticArray()
 	print(table);
 	std::cout << "=====";
 
+	// Today + 7 days
 	time_t t = time(NULL);
 	tm u;
 	localtime_s(&u, &t);
 	u.tm_mday += 7;
 	t = mktime(&u);
+
 	std::cout << "\nExpired: " << countExpiredBooks(table, t) << "\n=====\n";
 	deleteBookCardsByReturnDate(table, t);
 

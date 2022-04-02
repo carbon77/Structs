@@ -140,15 +140,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BookCard.cpp" />
-    <ClCompile Include="DynamicArray.cpp" />
-    <ClCompile Include="StaticArray.cpp" />
+    <ClCompile Include="DynamicTable.cpp" />
+    <ClCompile Include="StaticTable.cpp" />
     <ClCompile Include="StructsTable.cpp" />
     <ClCompile Include="VectorTable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BookCard.h" />
     <ClInclude Include="DynamicTable.h" />
-    <ClInclude Include="StaticArray.h" />
+    <ClInclude Include="StaticTable.h" />
     <ClInclude Include="VectorTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

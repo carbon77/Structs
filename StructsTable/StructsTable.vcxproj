@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="StaticArray.cpp" />
     <ClCompile Include="StructsTable.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="StaticArray.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,6 @@
-﻿#include <iostream>
+﻿#include "StaticArray.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	testStaticArray();
 }

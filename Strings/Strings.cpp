@@ -3,7 +3,7 @@
 
 int main()
 {
-	testStdString();
+	testCStyle();
 
 	return 0;
 }

@@ -2,4 +2,4 @@
 
 #include "sorts.h"
 
-void testInsertSort();
+void testSort();

@@ -6,8 +6,7 @@ int main()
 {
     srand(time(NULL));
        
-    std::cout << "Insert sort: ";
-    testInsertSort();
+    testSort();
 
     return 0;
 }
